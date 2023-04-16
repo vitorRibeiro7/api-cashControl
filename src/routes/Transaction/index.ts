@@ -48,6 +48,32 @@ router.get("/", async (req: Request, res: Response) => {
   return res.status(200).json(transactions);
 });
 
-router.get("")
+router.get("/amount", async (req: Request, res: Response) => {
+  const deposit = await prisma.transaction.groupBy({
+    by: ["type"],
+    where: {
+      type: true,
+    },
+    _sum: {
+      price: true,
+    },
+  });
+
+  const withdraw = await prisma.transaction.groupBy({
+    by: ["type"],
+    where: {
+      type: false,
+    },
+    _sum: {
+      price: true,
+    },
+  });
+
+  const totalDeposit = deposit[0]._sum.price ?? 0;
+  const totalWithdraw = withdraw[0]._sum.price ?? 0;
+  const total = totalDeposit + totalWithdraw;
+
+  return res.status(200).json({ totalDeposit, totalWithdraw, total });
+});
 
 export default router;
