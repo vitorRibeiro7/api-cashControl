@@ -11,5 +11,5 @@ app.use(express.json());
 app.use(Routes);
 
 app.listen(process.env.PORT, () => {
-  console.log(`Rodando na porta ${process.env.PORT}`);
+    console.log(`Rodando na porta ${process.env.PORT}`);
 });
