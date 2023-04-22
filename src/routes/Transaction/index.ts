@@ -19,11 +19,7 @@ router.post("/", async (req: Request, res: Response) => {
 
     try {
         createTransactionSchema.validateSync(req.body);
-    } catch (err: any) {
-        return res.status(400).json({ error: err.message });
-    }
 
-    try {
         const transaction = await prisma.transaction.create({
             data: {
                 ...req.body,
@@ -48,11 +44,7 @@ router.put("/", async (req: Request, res: Response) => {
 
     try {
         createTransactionSchema.validateSync(req.body);
-    } catch (err: any) {
-        return res.status(400).json({ error: err.message });
-    }
 
-    try {
         const transaction = await prisma.transaction.create({
             data: {
                 ...req.body,
@@ -72,14 +64,8 @@ router.delete("/:id", async (req: Request, res: Response) => {
 
     try {
         const parsedId = { id: parseInt(req.params.id, 10) };
-        console.log(parsedId);
         const { id } = await deleteTransactionSchema.validate(parsedId);
-        console.log(id);
-    } catch (error: any) {
-        return res.status(400).json(error);
-    }
 
-    try {
         const deletion = await prisma.transaction.delete({
             where: {
                 id: parseInt(req.params.id, 10),
