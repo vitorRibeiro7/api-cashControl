@@ -26,7 +26,7 @@
 
 <h2 align="center"> <strong> Sobre o projeto </strong> </h2>
 
-<h4 align="justify"> Esta é uma api restful baseada em um sistema de controle de gastos, onde podemos registrar um gasto, adicionando um tipo, se entrada ou saída de dinheiro; podemos tambem pesquisar por registros pode tipo e nome, alem de uma rota com a possibilidade de listar, com limite de registros por pagina.
+<h4 align="justify"> Esta é uma API RESTful baseada em um sistema de controle de gastos, onde podemos registrar um gasto, adicionando um tipo (entrada ou saída de dinheiro). Também é possível pesquisar registros por tipo e nome, além de uma rota que possibilita listar com limite de registros por página.
 <br>
 </h4>
 
